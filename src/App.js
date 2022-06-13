@@ -1,8 +1,7 @@
 import { useState, useEffect } from 'react';
 
 import './App.css';
-
-import { dispatchEvent, changeInputState } from './collab'
+import './collab/mutationObserver';
 
 function App() {
   const [name, setName] = useState('');
@@ -18,10 +17,7 @@ function App() {
   }, [name]);
 
   return (
-    <div className="App"
-      onClick={dispatchEvent}
-      onChange={changeInputState}
-    >
+    <div className="App">
       <header className="App-header">
         <input type="text" value={name} onChange={(e) => { setName(e.target.value) }} placeholder="name" onFocus={() => console.log('name is in focus')} />
         <input type="text" value={email} onChange={(e) => { setEmail(e.target.value) }} placeholder="email" />
